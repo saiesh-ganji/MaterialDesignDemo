@@ -4,4 +4,59 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="asteriskred"><font color='#cc0029'>*</font></string>
+
+
+    <array name="items">
+        <item>Test 1</item>
+        <item>Test 2</item>
+        <item>Test 3</item>
+        <item>Test 4</item>
+        <item>Test 5</item>
+        <item>Test 6</item>
+        <item>Test 7</item>
+        <item>Test 1</item>
+        <item>Test 2</item>
+        <item>Test 3</item>
+        <item>Test 4</item>
+        <item>Test 5</item>
+        <item>Test 6</item>
+        <item>Test 7</item>
+        <item>Test 1</item>
+        <item>Test 2</item>
+        <item>Test 3</item>
+        <item>Test 4</item>
+        <item>Test 5</item>
+        <item>Test 6</item>
+        <item>Test 7</item>
+        <item>Test 1</item>
+        <item>Test 2</item>
+        <item>Test 3</item>
+        <item>Test 4</item>
+        <item>Test 5</item>
+        <item>Test 6</item>
+        <item>Test 7</item>
+        <item>Test 1</item>
+        <item>Test 2</item>
+        <item>Test 3</item>
+        <item>Test 4</item>
+        <item>Test 5</item>
+        <item>Test 6</item>
+        <item>Test 7</item>
+        <item>Test 1</item>
+        <item>Test 2</item>
+        <item>Test 3</item>
+        <item>Test 4</item>
+        <item>Test 5</item>
+        <item>Test 6</item>
+        <item>Test 7</item>
+        <item>Test 1</item>
+        <item>Test 2</item>
+        <item>Test 3</item>
+        <item>Test 4</item>
+        <item>Test 5</item>
+        <item>Test 6</item>
+        <item>Test 7</item>
+    </array>
 </resources>

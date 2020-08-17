@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,11 +15,13 @@ import java.util.ArrayList;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder> {
 
-    ArrayList<String> itemList;
-    Context context;
-    public ItemAdapter(Context context, ArrayList<String> itemList) {
+    private ArrayList<String> itemList;
+    private Context context;
+    private int selectedItemPosition = -1;
+    public ItemAdapter(Context context, ArrayList<String> itemList, int selectedItemPosition) {
         this.context = context;
         this.itemList = itemList;
+        this.selectedItemPosition = selectedItemPosition;
     }
 
     @NonNull
@@ -31,6 +34,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder> {
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.item.setText(itemList.get(position));
+        holder.item.setChecked(position == selectedItemPosition);
     }
 
     @Override
@@ -43,20 +47,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder> {
         notifyDataSetChanged();
     }
 
-    class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class Holder extends RecyclerView.ViewHolder {
 
-        TextView item;
+        RadioButton item;
         public Holder(@NonNull View itemView) {
             super(itemView);
             item = itemView.findViewById(R.id.recycler_row_item);
 
-            item.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            int pos = getLayoutPosition();
-            Toast.makeText(context, itemList.get(pos), Toast.LENGTH_SHORT).show();
+            item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectedItemPosition = getAdapterPosition();
+                    Toast.makeText(context, itemList.get(selectedItemPosition), Toast.LENGTH_SHORT).show();
+                    notifyDataSetChanged();
+                }
+            });
         }
     }
 }

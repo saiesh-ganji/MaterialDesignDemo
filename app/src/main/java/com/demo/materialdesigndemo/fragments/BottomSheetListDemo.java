@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +26,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.ArrayList;
 
-public class BottomSheetListDemo extends BottomSheetDialogFragment {
+public class BottomSheetListDemo extends BottomSheetDialogFragment implements View.OnClickListener {
 
     ArrayList<String> itemList;
     Context context;
@@ -47,10 +49,12 @@ public class BottomSheetListDemo extends BottomSheetDialogFragment {
         RecyclerView recyclerView = view.findViewById(R.id.bottom_dialog_recyclerview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context,RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        ItemAdapter adapter = new ItemAdapter(context,itemList);
+        ItemAdapter adapter = new ItemAdapter(context,itemList, 1);
         recyclerView.setAdapter(adapter);
 
         EditText searchEditText = view.findViewById(R.id.bottom_dialog_search);
+        ImageButton closeDialog = view.findViewById(R.id.bottom_dialog_close);
+        Button doneButton = view.findViewById(R.id.bottom_dialog_done);
         searchEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -94,6 +98,18 @@ public class BottomSheetListDemo extends BottomSheetDialogFragment {
 
             }
         });
+        closeDialog.setOnClickListener(this);
+        doneButton.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bottom_dialog_close:
+            case R.id.bottom_dialog_done:
+                dismiss();
+                break;
+
+        }
+    }
 }
